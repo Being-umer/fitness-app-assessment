@@ -1,0 +1,165 @@
+@import "tailwindcss"; 
+
+/* Tailwind CSS Custom Colors using CSS Variables */
+
+@layer base {
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  
+  .bg-primary-hover {
+    background-color: var(--color-primary-hover);
+  }
+  
+  .bg-primary-dark {
+    background-color: var(--color-primary-dark);
+  }
+  
+  .bg-secondary {
+    background-color: var(--color-secondary);
+  }
+  
+  .bg-accent {
+    background-color: var(--color-accent);
+  }
+  
+  .bg-dark-blue {
+    background-color: var(--color-dark-blue);
+  }
+  
+  .bg-medium-blue {
+    background-color: var(--color-medium-blue);
+  }
+  
+  .bg-light-blue {
+    background-color: var(--color-light-blue);
+  }
+  
+  .bg-background {
+    background-color: var(--color-background);
+  }
+  
+  .bg-background-light {
+    background-color: var(--color-background-light);
+  }
+  
+  .bg-background-card {
+    background-color: var(--color-background-card);
+  }
+  
+  .bg-gray {
+    background-color: var(--color-gray);
+  }
+  
+  .bg-gray-light {
+    background-color: var(--color-gray-light);
+  }
+  
+  .text-primary {
+    color: var(--color-primary);
+  }
+  
+  .text-primary-hover {
+    color: var(--color-primary-hover);
+  }
+  
+  .text-primary-dark {
+    color: var(--color-primary-dark);
+  }
+  
+  .text-secondary {
+    color: var(--color-secondary);
+  }
+  
+  .text-accent {
+    color: var(--color-accent);
+  }
+  
+  .text-dark-blue {
+    color: var(--color-dark-blue);
+  }
+  
+  .text-medium-blue {
+    color: var(--color-medium-blue);
+  }
+  
+  .text-light-blue {
+    color: var(--color-light-blue);
+  }
+  
+  .text-background {
+    color: var(--color-background);
+  }
+  
+  .text-background-light {
+    color: var(--color-background-light);
+  }
+  
+  .text-background-card {
+    color: var(--color-background-card);
+  }
+  
+  .text-gray {
+    color: var(--color-gray);
+  }
+  
+  .text-gray-light {
+    color: var(--color-gray-light);
+  }
+  
+  .border-primary {
+    border-color: var(--color-primary);
+  }
+  
+  .border-primary-hover {
+    border-color: var(--color-primary-hover);
+  }
+  
+  .border-primary-dark {
+    border-color: var(--color-primary-dark);
+  }
+  
+  .border-secondary {
+    border-color: var(--color-secondary);
+  }
+  
+  .border-accent {
+    border-color: var(--color-accent);
+  }
+  
+  .border-dark-blue {
+    border-color: var(--color-dark-blue);
+  }
+  
+  .border-medium-blue {
+    border-color: var(--color-medium-blue);
+  }
+  
+  .border-light-blue {
+    border-color: var(--color-light-blue);
+  }
+  
+  .border-background {
+    border-color: var(--color-background);
+  }
+  
+  .border-background-light {
+    border-color: var(--color-background-light);
+  }
+  
+  .border-background-card {
+    border-color: var(--color-background-card);
+  }
+  
+  .border-gray {
+    border-color: var(--color-gray);
+  }
+  
+  .border-gray-light {
+    border-color: var(--color-gray-light);
+  }
+  
+  .accent-primary {
+    accent-color: var(--color-primary);
+  }
+} 

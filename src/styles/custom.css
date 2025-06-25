@@ -1,0 +1,38 @@
+/* Custom styles for the fitness app will go here */
+
+/* Ensure smooth transitions for all interactive elements */
+button:not(:disabled) {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Prevent layout shifts during transitions */
+.transition-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Card transition base styles */
+.card-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+.card-transition-enter {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.card-transition-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.card-transition-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.card-transition-exit-active {
+  transform: translateX(-100%);
+  opacity: 0;
+} 

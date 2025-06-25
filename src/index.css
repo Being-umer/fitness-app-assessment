@@ -1,0 +1,35 @@
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Color Variables */
+  --color-primary: #36bc9f;
+  --color-primary-hover: #2ec4b6;
+  --color-primary-dark: #27b0a3;
+  --color-secondary: #f75950;
+  --color-accent: #ff7e7e;
+  --color-dark-blue: #183b49;
+  --color-medium-blue: #13556f;
+  --color-light-blue: #b2f2e9;
+  --color-background: #faf6f6;
+  --color-background-light: #f8f4f4;
+  --color-background-card: #e6f9f7;
+  --color-gray: #d8d8d8;
+  --color-gray-light: #f4f4f4;
+  --color-white: #ffffff;
+  --color-black: #000000;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Custom styles can be imported here in the future */
