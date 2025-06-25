@@ -4,19 +4,38 @@ import { motion, AnimatePresence } from "framer-motion";
 import Header from "../ui/Header";
 import { getAllCardNames, getCardConfig } from "../../routes";
 
+// Card wrapper component
+const CardWrapper: React.FC<{ cardName: string }> = ({ cardName }) => {
+  const cardConfig = getCardConfig(cardName);
+  const CardComponent = cardConfig?.component;
+
+  if (!CardComponent) {
+    return (
+      <div className="flex items-center justify-center h-full">
+        <div className="text-gray-500">Card not found</div>
+      </div>
+    );
+  }
+
+  return <CardComponent />;
+};
+
 const ResultCards = () => {
   const [cardIndex, setCardIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [hasNavigated, setHasNavigated] = useState(false);
   const navigate = useNavigate();
   const allCardNames = getAllCardNames();
 
   const handlePrev = () => {
+    setHasNavigated(true);
     setDirection(-1);
     setCardIndex((i) => Math.max(i - 1, 0));
   };
 
   const handleNext = () => {
     if (cardIndex < allCardNames.length - 1) {
+      setHasNavigated(true);
       setDirection(1);
       setCardIndex((i) => Math.min(i + 1, allCardNames.length - 1));
     } else if (cardIndex === allCardNames.length - 1) {
@@ -34,16 +53,6 @@ const ResultCards = () => {
   };
 
   const currentCardName = allCardNames[cardIndex];
-  const currentCardConfig = getCardConfig(currentCardName);
-  const CardComponent = currentCardConfig?.component;
-
-  if (!CardComponent) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-gray-500">Card not found</div>
-      </div>
-    );
-  }
 
   // Animation variants for card transitions
   const variants = {
@@ -86,8 +95,6 @@ const ResultCards = () => {
           {/* Peeked (static) bottom cards */}
           {peekIndexes.map((cardIdx, i) => {
             const peekCardName = allCardNames[cardIdx];
-            const peekCardConfig = getCardConfig(peekCardName);
-            const PeekCardComponent = peekCardConfig?.component;
 
             return (
               <div
@@ -102,30 +109,36 @@ const ResultCards = () => {
                   className="h-full overflow-y-auto pr-2"
                   onClick={() => handleCardClick(peekCardName)}
                 >
-                  {PeekCardComponent && <PeekCardComponent />}
+                  <CardWrapper cardName={peekCardName} />
                 </div>
               </div>
             );
           })}
 
           {/* Animated top card */}
-          <AnimatePresence custom={direction}>
-            <motion.div
-              key={currentCardName}
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 },
-              }}
-              className="absolute w-full bg-white rounded-[24px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] px-4 pt-8 min-h-[700px] cursor-pointer hover:shadow-[0_6px_40px_rgba(0,0,0,0.15)] transition-shadow duration-200 z-50"
-            >
-              <CardComponent />
-            </motion.div>
-          </AnimatePresence>
+          {hasNavigated ? (
+            <AnimatePresence custom={direction}>
+              <motion.div
+                key={currentCardName}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 },
+                }}
+                className="absolute w-full bg-white rounded-[24px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] px-4 pt-8 min-h-[700px] cursor-pointer hover:shadow-[0_6px_40px_rgba(0,0,0,0.15)] transition-shadow duration-200 z-50"
+              >
+                <CardWrapper cardName={currentCardName} />
+              </motion.div>
+            </AnimatePresence>
+          ) : (
+            <div className="absolute w-full bg-white rounded-[24px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] px-4 pt-8 min-h-[700px] cursor-pointer hover:shadow-[0_6px_40px_rgba(0,0,0,0.15)] transition-shadow duration-200 z-50">
+              <CardWrapper cardName={currentCardName} />
+            </div>
+          )}
         </div>
       </div>
 

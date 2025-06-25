@@ -41,42 +41,48 @@ export const routes: RouteObject[] = [
   },
 ];
 
+// Import card components directly (not lazy loaded)
+import BodyFatCard from "../components/cards/BodyFatCard";
+import BMIInsights from "../components/cards/BMIInsights";
+import RecommendCallories from "../components/cards/RecommendCallories";
+import WaterIntake from "../components/cards/WaterIntake";
+import WaitLossRate from "../components/cards/WaitLossRate";
+import VisibleChangesTimelines from "../components/cards/VisibleChangesTimelines";
+
 // Card configuration for individual routes
 export const cardConfig = {
   "body-fat": {
-    component: lazy(() => import("../components/cards/BodyFatCard")),
+    component: BodyFatCard,
     title: "Body Fat %",
     description: "Your body fat percentage analysis",
     previousButtonText: "Back to Form",
   },
   "bmi-insights": {
-    component: lazy(() => import("../components/cards/BMIInsights")),
+    component: BMIInsights,
     title: "BMI Insights",
     description: "Your BMI analysis and recommendations",
     previousButtonText: "Body Fat %",
   },
   "calorie-recommendations": {
-    component: lazy(() => import("../components/cards/RecommendCallories")),
+    component: RecommendCallories,
     title: "Calorie Recommendations",
     description: "Personalized calorie intake recommendations",
     previousButtonText: "BMI",
   },
   "water-intake": {
-    component: lazy(() => import("../components/cards/WaterIntake")),
+    component: WaterIntake,
     title: "Water Intake",
     description: "Hydration recommendations",
     previousButtonText: "Caloric Intake",
   },
   "weight-loss-rate": {
-    component: lazy(() => import("../components/cards/WaitLossRate")),
+    component: WaitLossRate,
     title: "Weight Loss Rate",
     description: "Your weight loss timeline",
     previousButtonText: "Hydration",
   },
   "visible-changes": {
-    component: lazy(
-      () => import("../components/cards/VisibleChangesTimelines")
-    ),
+    component: VisibleChangesTimelines,
     title: "Visible Changes Timeline",
     description: "When you'll see results",
     previousButtonText: "Weight Rate",
