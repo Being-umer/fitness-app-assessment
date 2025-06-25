@@ -107,6 +107,7 @@ const UserInputForm: React.FC<Props> = ({ onSubmit, initialData }) => {
         </label>
         <input
           type="number"
+          min="0"
           placeholder="e.g. 1600"
           value={formData.calorieTarget}
           onChange={(e) => handleChange("calorieTarget", e.target.value)}
@@ -142,6 +143,7 @@ const UserInputForm: React.FC<Props> = ({ onSubmit, initialData }) => {
         </label>
         <input
           type="number"
+          min="0"
           placeholder="Target lbs/week"
           value={formData.weightLossRate}
           onChange={(e) => handleChange("weightLossRate", e.target.value)}
@@ -156,6 +158,7 @@ const UserInputForm: React.FC<Props> = ({ onSubmit, initialData }) => {
         </label>
         <input
           type="number"
+          min="0"
           placeholder="e.g. 10"
           value={formData.seeResultsDays}
           onChange={(e) => handleChange("seeResultsDays", e.target.value)}
